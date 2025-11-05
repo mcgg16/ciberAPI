@@ -38,9 +38,8 @@ def index():
 			"delete_news": "DELETE /news/<id>"
 		}
 	})
-	
-@app.route("/news", methods=["GET"])
 
+@app.route("/news", methods=["GET"])
 def list_news():
 	return jsonify({"count": len(news), "items": news})
 
@@ -80,7 +79,6 @@ def update_news(item_id: int):
 		item["title"] = request.json["title"]
 	if "content" in request.json:
 		item["content"] = request.json["content"]
-	
 	return jsonify(item)
 
 
